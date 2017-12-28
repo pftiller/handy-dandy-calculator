@@ -1,0 +1,72 @@
+@font-face {
+    font-family:Digital;
+    src: url(/fonts/digital.ttf);
+}
+* {
+    box-sizing: border-box;
+}
+*:disabled {
+    user-select: none;
+    width: 100%;
+    background-color: #bbb;
+    opacity:0.6;
+
+}
+#calculator {
+    display: table;
+    background-color:#505050;
+    border-radius:10px;
+    width:25%;
+    margin:0 auto;
+    height:300px;
+    padding:10px;
+}
+#display {
+    font-family: Digital;
+    font-size:40px;
+    color:#464646;
+    background-color:#cedfcd;
+    width:90%;
+    margin: 15px auto;
+    height:50px;
+    border-radius:10px;
+}
+#display span {
+  text-align: right;
+  float:right;
+  margin:5px;
+}
+#buttons {
+    width:90%;
+    margin: 15px auto;
+}
+#numbers {
+    width:75%;
+    display:inline-block;
+    float:left;
+}
+#numbers button {
+    width:30%;
+    height: 50px;
+    display: table-cell;
+    margin:5px .75%;
+    background-color:#ececec;
+    border-radius:5px;
+}
+aside {
+    width:20%;
+    display:inline-block;
+    float:right;
+}
+aside button {
+    width:90%;
+    margin: 5px auto;
+    display:block;
+    height:25px;
+    background-color:#ececec;
+    border-radius:5px;
+}
+#equals {
+    background-color:#f0aa48;
+    height: 45px;
+}
