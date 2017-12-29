@@ -11,12 +11,13 @@ app.listen(port, function(){
     console.log('server is up on', port);
 });
 
-// app.get('/calculate', function(req, res){
-//    res.send(calculate.latestAnswer());
-// })
+app.get('/calculate', function(req, res){
+   res.send(calculate.latestAnswer());
+});
 
 app.post('/calculate', function(req, res){
-    res.send(calculate.calculateEquation(req.body));
+    calculate.calculateEquation(req.body);
+    res.sendStatus( 200 );
 });
 
 

@@ -42,7 +42,6 @@ function sendMathEquation() {
         data: objectToSend,
         success: function(response) {
             console.log('SUCCESS', response);
-            displayAnswer(response);
         },
         error: function(response) {
             console.log('ERROR', response);
@@ -50,18 +49,19 @@ function sendMathEquation() {
     });
     $('#display span').empty();
     $('#calculator button').attr("disabled", true);
+    getAnswer();
 };
 
-// function getAnswer() {
-//     $.ajax({
-//         method: 'GET',
-//         url: '/calculate',
-//         success: function( response ){
-//             console.log( 'back from server with:', response );
-//             displayAnswer(response);
-//         }
-//     });
-// }
+function getAnswer() {
+    $.ajax({
+        method: 'GET',
+        url: '/calculate',
+        success: function( response ){
+            console.log( 'back from server with:', response );
+            displayAnswer(response);
+        }
+    });
+}
 function displayAnswer(answer) {
-    console.log(answer);
+    console.log(answer[0].answer);
 }

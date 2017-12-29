@@ -15,16 +15,15 @@ function calculateEquation(latestEquation) {
         answer = parseInt(latestEquation.number1) / parseInt(latestEquation.number2);
     }
    latestEquation.answer = answer;
-   console.log(latestEquation);
-   allEquations.push(latestEquation);
-   console.log(allEquations);
+   allEquations.unshift(latestEquation);
 }
 
-function provideAnswer() {
-    return latestEquation.answer;
+function sendAnswer() {
+    return allEquations;
 }
+
 
 module.exports = {
    calculateEquation: calculateEquation,
-   //latestAnswer: provideAnswer
+   latestAnswer: sendAnswer
 };
