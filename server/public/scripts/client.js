@@ -22,6 +22,7 @@ function onLoad() {
 }
 
 function captureAndDisplay() {
+    $('#display span').empty();
     displayNumber+=$(this).text();
     $('#display span').append($(this).text())
 }
@@ -29,8 +30,10 @@ function captureAndDisplay() {
 function captureID() {
    equationArray.push(displayNumber);
    displayNumber = '';
-   $('#display span').empty();
    equationArray.push(($(this).attr('id')));
+   if(equationArray.length > 2) {
+        getAnswer();
+   }
 }
 function sendMathEquation() {
     equationArray.push(displayNumber);
@@ -62,6 +65,7 @@ function getAnswer() {
         }
     });
 }
-function displayAnswer(answer) {
-    console.log(answer[0].answer);
+function displayAnswer(response) { 
+    $('#display span').append(response[0].answer);
+    $('#equation-history').append
 }
