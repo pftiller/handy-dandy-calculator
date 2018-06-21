@@ -1,11 +1,3 @@
-class EquationElements {
-    constructor(number1,operator,number2){
-        this.number1 = number1;
-        this.operator = operator;
-        this.number2 = number2;
-    }
-}
-
 let displayNumber='';
 let equationArray = [];
 let objectToSend;
@@ -22,6 +14,7 @@ function onLoad() {
 }
 
 function captureAndDisplay() {
+    $('#display span').empty();
     displayNumber+=$(this).text();
     $('#display span').append($(this).text())
 }
@@ -29,13 +22,17 @@ function captureAndDisplay() {
 function captureID() {
    equationArray.push(displayNumber);
    displayNumber = '';
-   $('#display span').empty();
    equationArray.push(($(this).attr('id')));
+   if(equationArray.length > 2) {
+        getAnswer();
+   }
 }
 function sendMathEquation() {
     equationArray.push(displayNumber);
-        objectToSend = new EquationElements(equationArray[0], equationArray[1], equationArray[2]); 
+    for(let item of equationArray) {
+        objectToSend += equationArray[item];
         console.log(objectToSend);   
+    }
     $.ajax({
         method: 'POST',
         url: '/calculate',
@@ -48,7 +45,7 @@ function sendMathEquation() {
         }
     });
     $('#display span').empty();
-    $('#calculator button').attr("disabled", true);
+    // $('#calculator button').attr("disabled", true);
     getAnswer();
 };
 
@@ -62,6 +59,7 @@ function getAnswer() {
         }
     });
 }
-function displayAnswer(answer) {
-    console.log(answer[0].answer);
+function displayAnswer(response) { 
+    $('#display span').append(response);
+    $('#equation-history').append
 }
