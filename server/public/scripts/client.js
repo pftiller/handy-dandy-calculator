@@ -1,11 +1,3 @@
-class EquationElements {
-    constructor(number1,operator,number2){
-        this.number1 = number1;
-        this.operator = operator;
-        this.number2 = number2;
-    }
-}
-
 let displayNumber='';
 let equationArray = [];
 let objectToSend;
@@ -16,28 +8,43 @@ function onLoad() {
     console.log('JQ');
     //event listeners
     $('#numbers button').on('click', captureAndDisplay);
-    $('#operators button').on('click', captureID);
+    $('#operators button').on('click', captureOperator);
     $('#equals').on('click', sendMathEquation);
 
 }
 
 function captureAndDisplay() {
-    $('#display span').empty();
-    displayNumber+=$(this).text();
-    $('#display span').append($(this).text())
-}
+    let lastElement = equationArray[equationArray.length - 1];
+    console.log(lastElement);
+    if(typeof lastElement === "undefined") {
+        displayNumber = '';
+        displayNumber+=$(this).text();
+        console.log(displayNumber);
+        $('#display span').append(displayNumber).text();
+    }
+        else {
+            if(lastElement === "addition") {
+                $('#display span').empty();
+                displayNumber=$(this).text();
+                console.log(displayNumber);
+                $('#display span').append(displayNumber).text();
+            }
+        }
+    }
+    
 
-function captureID() {
-   equationArray.push(displayNumber);
-   displayNumber = '';
-   equationArray.push(($(this).attr('id')));
-   if(equationArray.length > 2) {
-        getAnswer();
-   }
+    // }
+
+
+function captureOperator() {
+    let integer = parseInt(displayNumber);
+    console.log('here is integer', integer);
+    equationArray.push((integer));
+    equationArray.push(($(this).attr('id')));
 }
 function sendMathEquation() {
     equationArray.push(displayNumber);
-        objectToSend = new EquationElements(equationArray[0], equationArray[1], equationArray[2]); 
+        objectToSend += new EquationElements(equationArray[0], equationArray[1], equationArray[2]); 
         console.log(objectToSend);   
     $.ajax({
         method: 'POST',
@@ -55,17 +62,17 @@ function sendMathEquation() {
     getAnswer();
 };
 
-function getAnswer() {
-    $.ajax({
-        method: 'GET',
-        url: '/calculate',
-        success: function( response ){
-            console.log( 'back from server with:', response );
-            displayAnswer(response);
-        }
-    });
-}
-function displayAnswer(response) { 
-    $('#display span').append(response[0].answer);
-    $('#equation-history').append
-}
+// function getAnswer() {
+//     $.ajax({
+//         method: 'GET',
+//         url: '/calculate',
+//         success: function( response ){
+//             console.log( 'back from server with:', response );
+//             displayAnswer(response);
+//         }
+//     });
+// }
+// function displayAnswer(response) { 
+//     $('#display span').append(response[0].answer);
+//     $('#equation-history').append
+// }
