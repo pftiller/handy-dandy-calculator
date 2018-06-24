@@ -1,251 +1,395 @@
 @import url('https://fonts.googleapis.com/css?family=Coming+Soon|Permanent+Marker|Roboto:900');
-@font-face {
-    font-family:Digital;
-    src: url(/fonts/digital.ttf);
+ @font-face {
+     font-family:Digital;
+     src: url(/fonts/digital.ttf);
 }
-* {
-    box-sizing: border-box;
+ * {
+     box-sizing: border-box;
 }
-body {
-    background-color: #D1FEC5;
+ body {
+     background-color: #D1FEC5;
 }
-button {
-    cursor:pointer;
+ button {
+     cursor:pointer;
 }
-.sticky-note  {
-    /* position: relative; */
-    z-index: 1;
-    width: 250px;
-    height: 250px;
-    padding: 0;
-    margin: 0 auto 20px;
-    background: #FFFFA5;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
-
-
+ #desk {
+     width:90%;
+     height:1025px;
+     margin:auto;
+     border-radius:25px;
+     background: url('../img/wood.png');
+     background-repeat: repeat;
+     background-size: 100%;
+     padding:10px;
+     box-shadow: 4px 4px 5px 0px rgba(102,102,102,0.6);
 }
-.sticky-note h1 {  
-    position: relative;
-    top:20%;
-    transform: rotate(-7deg);
-    font-family: 'Permanent Marker', cursive;
-    color: #eb2626;
-
+ .sticky-note {
+     z-index: 1;
+     width: 175px;
+     height: 175px;
+     padding: 0;
+     margin: 0 auto 15px;
+     background: #FFFFA5;
+     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
 }
-
-
-
-
-
-
-
-
-
-
-
-#desk {
-    width:85%;
-    min-height:625px;
-    margin:auto;
-    border-radius:25px;
-    background: url('../img/wood.png');
-    background-repeat: no-repeat;
-    background-size: 100%;
-    padding:20px;
-    display:flex;
-    justify-content: space-between;
-    -webkit-box-shadow: 4px 4px 5px 0px rgba(102,102,102,0.6);
--moz-box-shadow: 4px 4px 5px 0px rgba(102,102,102,0.6);
-box-shadow: 4px 4px 5px 0px rgba(102,102,102,0.6);
-    
+ .sticky-note h1 {
+     position: relative;
+     font-size:1.5em;
+     top:20%;
+     transform: rotate(-7deg);
+     font-family: 'Permanent Marker', cursive;
+     color: #eb2626;
+     text-align: center;
 }
-h1 {
-    text-align:center;
+ #calculator {
+     display: table;
+     background-color:#505050;
+     border-radius:10px;
+     width:230px;
+     margin:30px 0 0 25px;
+     height:250px;
+     padding:10px;
 }
-*:disabled {
-    user-select: none;
-    width: 100%;
-    background-color: #bbb;
-    opacity:0.6;
-
+ #display {
+     font-family: Digital, serif;
+     font-size:35px;
+     color:#464646;
+     background-color:#cedfcd;
+     width:90%;
+     margin: 15px auto;
+     height:40px;
+     border-radius:10px;
 }
-#calculator {
-    display: table;
-    background-color:#505050;
-    border-radius:10px;
-    width:275px;
-    margin:55px auto 0;
-    height:300px;
-    padding:10px;
+ #display span {
+     text-align: right;
+     float:right;
+     margin:7px;
 }
-#display {
-    font-family: Digital;
-    font-size:40px;
-    color:#464646;
-    background-color:#cedfcd;
-    width:90%;
-    margin: 15px auto;
-    height:50px;
-    border-radius:10px;
+ #buttons {
+     width:90%;
+     margin: 10px auto;
 }
-#display span {
-  text-align: right;
-  float:right;
-  margin:5px;
+ #numbers {
+     width:80%;
+     display:inline-block;
+     float:left;
 }
-#buttons {
-    width:90%;
-    margin: 15px auto;
+ aside button {
+     width:100%;
+     margin: 5px auto;
+     display:block;
+     height:23px;
+     background-color:#ececec;
+     border-radius:5px;
 }
-#numbers {
-    width:75%;
-    display:inline-block;
-    float:left;
+ #numbers button {
+     width:25%;
+     height: 45px;
+     display: table-cell;
+     margin:5px 1%;
+     background-color:#ececec;
+     border-radius:5px;
 }
-#numbers button {
-    width:30%;
-    height: 50px;
-    display: table-cell;
-    margin:5px .75%;
-    background-color:#ececec;
-    border-radius:5px;
+ aside {
+     width:20%;
+     display:inline-block;
 }
-aside {
-    width:20%;
-    display:inline-block;
-    float:right;
+ #equals {
+     background-color:#f0aa48;
+     height: 40px;
 }
-aside button {
-    width:90%;
-    margin: 5px auto;
-    display:block;
-    height:25px;
-    background-color:#ececec;
-    border-radius:5px;
+ .paper {
+     height: 475px;
+     width: 388px;
+     background: #fff;
+     position: relative;
+     box-shadow: 0px 0px 5px 0px #888;
+     margin-top:25px;
+     margin-left:10px;
 }
-#equals {
-    background-color:#f0aa48;
-    height: 45px;
+ .paper::before {
+     content: '';
+     position: absolute;
+     left: 45px;
+     height: 100%;
+     width: 2px;
+     background: rgba(255,0,0,0.4);
 }
-#new-problem {
-    margin:auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width:25%;
+ .lines {
+     margin-top: 30px;
+     height: calc(100% - 30px);
+     width: 100%;
+     background-image: repeating-linear-gradient(white 0px, white 24px, steelblue 25px);
 }
-      @keyframes animationFrames{
-        0% {
-          top:100%;
-        }
-        10% {
-            background-color: #f6d43c;
-        }
-        20% {
-            background-color: #6cbb4c;
-        }
-        30% {
-            background-color: #f6d43c;
-        }
-        40% {
-            background-color: #6cbb4c;
-        }
-        50% {
-            top:87%;
-            background-color: #f6d43c;
-        }
-        60%{
-            background-color: #6cbb4c;
-        }
-        70%{
-            background-color: #f6d43c;
-        }
-        80%{
-            background-color: #6cbb4c;
-        }
-        90%{
-            background-color: #f6d43c;
-        }
-        100% {
-            top:72.5%;
-            background-color: #6cbb4c;
-        }
-      }
-#reset {
-    position: absolute;
-    top: 72.5%;
-    background-color: #6cbb4c;
-    width: 300px;
-    height: 75px;
-    border-radius: 10px;
-    font-family: 'Roboto', sans-serif;
-    text-transform: uppercase;
-    font-size: 20px;
-    z-index: 3;
-    border: none;
-    padding: 0;
-    color:#fff;  
-    animation: animationFrames linear .75s;
-    cursor: pointer;
-  }
-
-#reset:hover {
-    background-color: #8ac971;
+ .text {
+     font-family: 'Coming Soon', cursive;
+     line-height: 1.5em;
 }
-#equation-history {
-    clear: both;
-    margin-left: 12px;
-    list-style-type: none;
-    position: relative;
-    top: 5%;
+ #equation-history {
+     clear: both;
+     margin-left: 12px;
+     list-style-type: none;
+     position: relative;
+     top: 6%;
 }
-#equation-history li  {
-    margin: 2px 0;
+ #equation-history li {
+     margin: 2px 0;
 }
-.paper {
-    height: 550px;
-    width: 450px;
-    background: #fff;
-    position: relative;
-    box-shadow: 0px 0px 5px 0px #888;
-    margin-top:40px;
-  }
-  .paper::before {
-    content: '';
-    position: absolute;
-    left: 45px;
-    height: 100%;
-    width: 2px;
-    background: rgba(255,0,0,0.4);
-  }
-  .lines {
-    margin-top: 40px;
-    height: calc(100% - 40px);
-    width: 100%;
-    background-image: repeating-linear-gradient(white 0px, white 24px, steelblue 25px);
-  }
-.text {
-    font-family: 'Coming Soon', cursive;
-    line-height: 1.5em;
-  } 
-  .holes {
-    position: absolute;
-    left: 10px;
-    height: 25px;
-    width: 25px;
-    background: url('../img/wood.png');
-    background-repeat: no-repeat;
-    background-size: 1000%;
-    z-index: 2;
-    border-radius: 50%;
-    box-shadow: inset 0px 0px 2px 0px #888;
-  }
-  .hole-top {
-    top: 10%;
-  }
-  .hole-middle {
-    top: 50%;
-  }
-  .hole-bottom {
-    bottom: 10%;
-  }
+ .holes {
+     position: absolute;
+     left: 10px;
+     height: 25px;
+     width: 25px;
+     background: url('../img/wood.png');
+     background-repeat: no-repeat;
+     background-size: 1000%;
+     z-index: 2;
+     border-radius: 50%;
+     box-shadow: inset 0px 0px 2px 0px #888;
+}
+ .hole-top {
+     top: 10%;
+}
+ .hole-middle {
+     top: 50%;
+}
+ .hole-bottom {
+     bottom: 10%;
+}
+ #new-problem {
+     margin:auto;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     width:25%;
+}
+ #reset {
+     bottom: 65%;
+     position: absolute;
+     background-color: #6cbb4c;
+     width: 300px;
+     height: 75px;
+     border-radius: 10px;
+     font-family: 'Roboto', sans-serif;
+     text-transform: uppercase;
+     font-size: 20px;
+     z-index: 3;
+     border: none;
+     padding: 0;
+     color:#fff;
+     animation: animationFrames linear .75s;
+     cursor: pointer;
+}
+ #reset:hover {
+     background-color: #8ac971;
+}
+ *:disabled {
+     user-select: none;
+     width: 100%;
+     background-color: #bbb;
+     opacity:0.6;
+}
+ @keyframes animationFrames{
+     0% {
+         bottom:100%;
+    }
+     10% {
+         background-color: #f6d43c;
+    }
+     20% {
+         background-color: #6cbb4c;
+    }
+     30% {
+         background-color: #f6d43c;
+    }
+     40% {
+         background-color: #6cbb4c;
+    }
+     50% {
+         bottom:80%;
+         background-color: #f6d43c;
+    }
+     60%{
+         background-color: #6cbb4c;
+    }
+     70%{
+         background-color: #f6d43c;
+    }
+     80%{
+         background-color: #6cbb4c;
+    }
+     90%{
+         background-color: #f6d43c;
+    }
+     100% {
+         bottom:65%;
+         background-color: #6cbb4c;
+    }
+}
+ @media screen and (min-width:600px) {
+     .sticky-note, #calculator {
+         display:inline-block;
+         float:left;
+    }
+     .sticky-note {
+         width: 215px;
+         height: 215px;
+         margin-left:5%;
+    }
+     #calculator {
+         margin: 3px 0 25px 20%;
+    }
+     .paper {
+         clear: both;
+         margin:0 auto;
+    }
+     #desk {
+         height:800px;
+    }
+     #reset {
+         top: 30%;
+    }
+}
+ @keyframes animationFrames{
+     0% {
+         top:100%;
+    }
+     10% {
+         background-color: #f6d43c;
+    }
+     20% {
+         background-color: #6cbb4c;
+    }
+     30% {
+         background-color: #f6d43c;
+    }
+     40% {
+         background-color: #6cbb4c;
+    }
+     50% {
+         top:65%;
+         background-color: #f6d43c;
+    }
+     60%{
+         background-color: #6cbb4c;
+    }
+     70%{
+         background-color: #f6d43c;
+    }
+     80%{
+         background-color: #6cbb4c;
+    }
+     90%{
+         background-color: #f6d43c;
+    }
+     100% {
+         top:30%;
+         background-color: #6cbb4c;
+    }
+}
+ @media screen and (min-width:1100px) {
+     #desk {
+         width:85%;
+         max-height:625px;
+         display:flex;
+         justify-content: space-between;
+    }
+     .sticky-note {
+         width: 250px;
+         height: 250px;
+         margin: 0 20px 20px;
+         order: 2;
+    }
+     .sticky-note h1 {
+         font-size:2em;
+    }
+     #calculator {
+         width:275px;
+         margin:55px auto 0;
+         height:300px;
+         order: 1;
+    }
+     #display {
+         font-size:40px;
+         height:50px;
+    }
+     #buttons {
+         margin: 15px auto;
+    }
+     #numbers {
+         width:75%;
+    }
+     aside button {
+         height:25px;
+    }
+     #numbers button {
+         width:30%;
+         height: 50px;
+         margin:5px .75%;
+    }
+     aside {
+         width:20%;
+         float:right;
+    }
+     #equals {
+         height: 45px;
+    }
+     .paper {
+         height: 550px;
+         width: 450px;
+         margin-top:40px;
+         order: 3;
+    }
+     .lines {
+         margin-top: 40px;
+         height: calc(100% - 40px);
+    }
+     .text {
+         font-family: 'Coming Soon', cursive;
+         line-height: 1.5em;
+    }
+     #equation-history {
+         top: 5%;
+    }
+     #reset {
+         top: 72.5%;
+    }
+}
+ @keyframes animationFrames{
+     0% {
+         top:100%;
+    }
+     10% {
+         background-color: #f6d43c;
+    }
+     20% {
+         background-color: #6cbb4c;
+    }
+     30% {
+         background-color: #f6d43c;
+    }
+     40% {
+         background-color: #6cbb4c;
+    }
+     50% {
+         top:87%;
+         background-color: #f6d43c;
+    }
+     60%{
+         background-color: #6cbb4c;
+    }
+     70%{
+         background-color: #f6d43c;
+    }
+     80%{
+         background-color: #6cbb4c;
+    }
+     90%{
+         background-color: #f6d43c;
+    }
+     100% {
+         top:72.5%;
+         background-color: #6cbb4c;
+    }
+}
+ 
