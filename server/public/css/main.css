@@ -5,6 +5,13 @@
 * {
     box-sizing: border-box;
 }
+body {
+    width:85%;
+    margin:auto;
+}
+h1 {
+    text-align:center;
+}
 *:disabled {
     user-select: none;
     width: 100%;
@@ -69,4 +76,14 @@ aside button {
 #equals {
     background-color:#f0aa48;
     height: 45px;
+}
+#new-problem {
+    margin:25px auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:25%;
+}
+#reset {
+    
 }
