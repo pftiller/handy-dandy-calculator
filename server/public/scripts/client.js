@@ -88,6 +88,7 @@ function getAnswer() {
         }
        
         console.log(answer);
+        answer = Math.round(answer * 100) / 100
     displayAnswer();
 };
 
@@ -101,7 +102,7 @@ function looptheArray() {
 
 function displayAnswer() { 
     $('#display span').append(answer);
-    $('#equation-history').append(`<li> ${looptheArray()}  equals  ${answer}`);
+    $('#equation-history').append(`<li> <span class="text">${looptheArray()}  equals  ${answer}</span></li>`);
     $('#new-problem').append('<button id="reset">New Problem</button>');
 }
 

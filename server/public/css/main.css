@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Coming+Soon|Permanent+Marker|Roboto:900');
 @font-face {
     font-family:Digital;
     src: url(/fonts/digital.ttf);
@@ -6,8 +7,57 @@
     box-sizing: border-box;
 }
 body {
+    background-color: #D1FEC5;
+}
+button {
+    cursor:pointer;
+}
+.sticky-note  {
+    /* position: relative; */
+    z-index: 1;
+    width: 250px;
+    height: 250px;
+    padding: 0;
+    margin: 0 auto 20px;
+    background: #FFFFA5;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+
+
+}
+.sticky-note h1 {  
+    position: relative;
+    top:20%;
+    transform: rotate(-7deg);
+    font-family: 'Permanent Marker', cursive;
+    color: #eb2626;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+#desk {
     width:85%;
+    min-height:625px;
     margin:auto;
+    border-radius:25px;
+    background: url('../img/wood.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding:20px;
+    display:flex;
+    justify-content: space-between;
+    -webkit-box-shadow: 4px 4px 5px 0px rgba(102,102,102,0.6);
+-moz-box-shadow: 4px 4px 5px 0px rgba(102,102,102,0.6);
+box-shadow: 4px 4px 5px 0px rgba(102,102,102,0.6);
+    
 }
 h1 {
     text-align:center;
@@ -24,7 +74,7 @@ h1 {
     background-color:#505050;
     border-radius:10px;
     width:275px;
-    margin:0 auto;
+    margin:55px auto 0;
     height:300px;
     padding:10px;
 }
@@ -78,12 +128,124 @@ aside button {
     height: 45px;
 }
 #new-problem {
-    margin:25px auto 15px;
+    margin:auto;
     display: flex;
     align-items: center;
     justify-content: center;
     width:25%;
 }
+      @keyframes animationFrames{
+        0% {
+          top:100%;
+        }
+        10% {
+            background-color: #f6d43c;
+        }
+        20% {
+            background-color: #6cbb4c;
+        }
+        30% {
+            background-color: #f6d43c;
+        }
+        40% {
+            background-color: #6cbb4c;
+        }
+        50% {
+            top:87%;
+            background-color: #f6d43c;
+        }
+        60%{
+            background-color: #6cbb4c;
+        }
+        70%{
+            background-color: #f6d43c;
+        }
+        80%{
+            background-color: #6cbb4c;
+        }
+        90%{
+            background-color: #f6d43c;
+        }
+        100% {
+            top:72.5%;
+            background-color: #6cbb4c;
+        }
+      }
 #reset {
-    
+    position: absolute;
+    top: 72.5%;
+    background-color: #6cbb4c;
+    width: 300px;
+    height: 75px;
+    border-radius: 10px;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    font-size: 20px;
+    z-index: 3;
+    border: none;
+    padding: 0;
+    color:#fff;  
+    animation: animationFrames linear .75s;
+    cursor: pointer;
+  }
+
+#reset:hover {
+    background-color: #8ac971;
 }
+#equation-history {
+    clear: both;
+    margin-left: 12px;
+    list-style-type: none;
+    position: relative;
+    top: 5%;
+}
+#equation-history li  {
+    margin: 2px 0;
+}
+.paper {
+    height: 550px;
+    width: 450px;
+    background: #fff;
+    position: relative;
+    box-shadow: 0px 0px 5px 0px #888;
+    margin-top:40px;
+  }
+  .paper::before {
+    content: '';
+    position: absolute;
+    left: 45px;
+    height: 100%;
+    width: 2px;
+    background: rgba(255,0,0,0.4);
+  }
+  .lines {
+    margin-top: 40px;
+    height: calc(100% - 40px);
+    width: 100%;
+    background-image: repeating-linear-gradient(white 0px, white 24px, steelblue 25px);
+  }
+.text {
+    font-family: 'Coming Soon', cursive;
+    line-height: 1.5em;
+  } 
+  .holes {
+    position: absolute;
+    left: 10px;
+    height: 25px;
+    width: 25px;
+    background: url('../img/wood.png');
+    background-repeat: no-repeat;
+    background-size: 1000%;
+    z-index: 2;
+    border-radius: 50%;
+    box-shadow: inset 0px 0px 2px 0px #888;
+  }
+  .hole-top {
+    top: 10%;
+  }
+  .hole-middle {
+    top: 50%;
+  }
+  .hole-bottom {
+    bottom: 10%;
+  }
